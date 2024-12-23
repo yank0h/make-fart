@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fart Button</title>
+    <meta charset="UTF-8" />
+    <style>
+      /* Center everything in the page */
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+      }
+
+      /* Red, circular button */
+      #fartButton {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: red;
+        color: white;
+        border: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        cursor: pointer;
+        outline: none;
+      }
+
+      #fartButton:hover {
+        background-color: #ff4d4d;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Press the Button to Hear a Fart!</h1>
+
+    <!-- The button that will trigger the sound -->
+    <button id="fartButton">FART</button>
+
+    <!-- Audio element with your fart sound -->
+    <audio id="fartSound" src="fart-sound.mp3"></audio>
+
+    <script>
+      const fartButton = document.getElementById('fartButton');
+      const fartSound = document.getElementById('fartSound');
+
+      fartButton.addEventListener('click', () => {
+        // Play the sound when the button is clicked
+        fartSound.play();
+      });
+    </script>
+  </body>
+</html>

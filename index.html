@@ -44,15 +44,23 @@
     <!-- The button that will trigger the sound -->
     <button id="fartButton">FART</button>
 
-    <!-- Audio element with your fart sound -->
-    <audio id="fartSound" src="fart-sound.mp3"></audio>
+    <!-- Audio element (no initial src so we can set it dynamically in JavaScript) -->
+    <audio id="fartSound"></audio>
 
     <script>
       const fartButton = document.getElementById('fartButton');
       const fartSound = document.getElementById('fartSound');
 
       fartButton.addEventListener('click', () => {
-        // Play the sound when the button is clicked
+        // Generate a random number between 1 and 5
+        const randomIndex = Math.floor(Math.random() * 5) + 1;
+        // Construct the file name from the random index
+        const chosenSound = `fart-sound-${randomIndex}.mp3`;
+
+        // Set the audio source to the chosen random file
+        fartSound.src = chosenSound;
+
+        // Play the sound
         fartSound.play();
       });
     </script>

@@ -4,30 +4,52 @@
     <title>Fart Button</title>
     <meta charset="UTF-8" />
     <style>
-      /* Center everything in the page */
+      /* Reset body margin so everything lines up at the top */
       body {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
         margin: 0;
         font-family: sans-serif;
       }
 
-      h1 {
-        margin-bottom: 20px;
+      /* Large black strip at the top with white text, centered */
+      #topBanner {
+        width: 100%;
+        background-color: black;
+        color: white;
+        text-align: center;
+        /* Twice as big as h1, see h1 font-size below */
+        font-size: 4rem;
+        font-weight: bold;
+        padding: 20px 0;
+        box-sizing: border-box;
       }
 
-      /* Red, circular button */
+      /* Styling for h1 (used further down the page). Set to 2rem so topBanner is 2x this size */
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      /* Container to center the content beneath the top banner */
+      .content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* Fill the remaining vertical space minus the banner */
+        min-height: calc(100vh - 80px);
+      }
+
+      /* Red, circular button with bigger text */
       #fartButton {
-        width: 170px;
-        height: 170px;
+        width: 250px;
+        height: 250px;
         border-radius: 50%;
         background-color: red;
         color: white;
         border: none;
-        font-size: 1.2rem;
+        /* Increase the font size for the FART text */
+        font-size: 2rem;
         font-weight: bold;
         cursor: pointer;
         outline: none;
@@ -40,11 +62,19 @@
   </head>
   <body>
 
-    <!-- The button that will trigger the sound -->
-    <button id="fartButton">FART</button>
+    <!-- Top Banner -->
+    <div id="topBanner">MORE COMING SOON</div>
 
-    <!-- Audio element (no initial src so we can set it dynamically in JavaScript) -->
-    <audio id="fartSound"></audio>
+    <!-- Main Content -->
+    <div class="content">
+      <h1>Press the Button to Hear a Fart!</h1>
+
+      <!-- The button that will trigger the sound -->
+      <button id="fartButton">FART</button>
+
+      <!-- Audio element (no initial src so we can set it dynamically in JavaScript) -->
+      <audio id="fartSound"></audio>
+    </div>
 
     <script>
       const fartButton = document.getElementById('fartButton');
